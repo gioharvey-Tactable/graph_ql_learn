@@ -1,0 +1,13 @@
+type students{
+    id: String
+    firstName:String
+    lastName:String
+    email: String
+    password: String
+    collegeId: String
+}
+type Query {
+    greeting:String
+    elements:[String]
+    studs:[students]!
+}

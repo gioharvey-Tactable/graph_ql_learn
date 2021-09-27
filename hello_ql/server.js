@@ -41,39 +41,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var express_1 = __importDefault(require("express"));
 var fs_1 = __importDefault(require("fs"));
-var resolver_1 = require("./resolver");
-// import { makeExecutableSchema  } from "graphql-tools"
-// import { graphiqlExpress, graphqlExpress } from "apollo-server-express"
 var apollo_server_express_1 = require("apollo-server-express");
-var http_1 = __importDefault(require("http"));
-// https://www.apollographql.com/docs/apollo-server/integrations/middleware/
-// const port = 9000
-var port = process.env.PORT || 9000;
-// const app = express()
-// const typeDefs = fs.readFileSync('./schema.graphql', {encoding:'utf-8'})
-// const server = new ApolloServer({typeDefs, resolvers})
-// // More required logic for integrating with Express
-// await server.start();
-// server.applyMiddleware({app}) //appolo-server-express
-// // To query write {hello} since there is no query name
-// app.listen({port:4000}, () =>   console.log('Now browse to http://localhost:4000' + server.graphqlPath)
-// )
+var resolver_1 = __importDefault(require("./resolver"));
+var port = process.env.PORT || 9000; // Node JS process
 var startApolloServer = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var app, port, httpServer, typeDefs, server;
+    var app, typeDefs, server;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 app = (0, express_1["default"])();
-                port = process.env.PORT || 9000;
-                httpServer = http_1["default"].createServer();
-                typeDefs = fs_1["default"].readFileSync('./schema.graphql', { encoding: 'utf-8' });
-                server = new apollo_server_express_1.ApolloServer({ typeDefs: typeDefs, resolvers: resolver_1.resolvers });
-                // More required logic for integrating with Express
+                typeDefs = fs_1["default"].readFileSync('./schema_hello.graphql', { encoding: 'utf-8' }) //encoding is needed 
+                ;
+                server = new apollo_server_express_1.ApolloServer({ typeDefs: typeDefs, resolvers: resolver_1["default"] });
                 return [4 /*yield*/, server.start()];
             case 1:
-                // More required logic for integrating with Express
                 _a.sent();
-                server.applyMiddleware({ app: app }); //appolo-server-express
+                server.applyMiddleware({ app: app });
                 app.listen({ port: port }, function () { return console.log("Now browse to http://localhost:" + port + server.graphqlPath); });
                 return [2 /*return*/];
         }
