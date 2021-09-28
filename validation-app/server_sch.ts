@@ -13,6 +13,8 @@ const startApolloServer = async ():Promise<void> => {
     
     await server.start();
     server.applyMiddleware({app})
+
+    // Registering port
     app.listen({port:port}, () => console.log(`Now browse to http://localhost:${port}${server.graphqlPath}`))
 
 }

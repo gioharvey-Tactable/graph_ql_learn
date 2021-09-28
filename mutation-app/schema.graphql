@@ -1,0 +1,37 @@
+type Query {
+    greeting: String
+    students:[Student]
+    studentById(id:ID!):Student
+    sayHello(name:String!):String # For dynamic values using variables
+    setFavouriteColor(color:ColorType):String
+}
+
+type Student {
+    id:ID!
+    firstName:String
+    lastName:String
+    password:String
+    collegeId:String
+    fullName:String # Custom field
+    college:College # Add the college to the student
+}
+type College{
+    id:ID!
+    name:String
+    location:String
+    rating:Float
+}
+
+# Adding Enum
+enum ColorType{
+    RED
+    BLUE
+    GREEN
+}
+
+# Adding Mutation
+
+type Mutation{
+    createStudent(collegeId:ID, firstName:String,lastName:String):String
+    addStudent_returns_obj(collegeId:ID, firstName:String,lastName:String):Student
+}
