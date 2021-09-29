@@ -1,21 +1,5 @@
 [
   {
-    "id": "S1001",
-    "firstName": "Mohtashim",
-    "lastName": "Mohammad",
-    "collegeId": "col-101",
-    "email": "mohtashim.mohammad@tutorialpoint.org",
-    "password": "pass123"
-  },
-  {
-    "id": "H17fL2yVY",
-    "firstName": "Timothy",
-    "lastName": "Bell",
-    "collegeId": "col-101",
-    "email": "mohtashim.mohammad@tutorialpoint.org",
-    "password": "pass123"
-  },
-  {
     "id": "B1jTY3yNK",
     "firstName": "Desmond",
     "lastName": "Bell",
@@ -24,11 +8,11 @@
     "password": "pass123"
   },
   {
-    "id": "BJU05hkEK",
-    "firstName": "Desmond",
-    "lastName": "Bell",
-    "collegeId": "col-10",
-    "email": "mohtashim.mohammad@tutorialpoint.org",
-    "password": "pass123"
+    "id": "41fa4e9b-79b7-48b3-b73b-2be5bc881219",
+    "firstName": "Bella",
+    "lastName": "Boiu",
+    "email": "gio.harvey13@gmail.com",
+    "password": "password123",
+    "collegeId": "col-101"
   }
 ]
