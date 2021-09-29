@@ -45,8 +45,31 @@ const Mutation = {
             lastName:args.lastName,
         })
         return db.students.get(id)
-    }
+    },
 
+    // The custom validator
+    signUp: (root:any, args:any, context:any, info:any):String|Error => {
+        const {email, password, firstName} = args.input
+        // Regular expression
+        const emailExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const isValidEmail = emailExpression.test(String(email).toLowerCase())
+
+        if (!isValidEmail){
+            throw new Error("Email not in proper format")
+        }
+        
+
+        if (firstName.length > 15){
+            throw new Error("firstName should be less than 15 characters")
+        }
+        
+
+        if (password.length < 8){
+            throw new Error ("password should be minimum of 8 characters")
+        }
+        
+        return "success"
+    }
 }
 
 export default {Query, Student, Mutation} // We export the merged resolvers

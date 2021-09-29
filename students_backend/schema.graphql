@@ -1,0 +1,57 @@
+# Student Backend Schema
+
+## Query Params
+type Query {
+    students:[Student]!
+    studentById(id:String!):Student!
+}
+
+## Mutation
+
+type Mutation {
+    signUp(new_stud:SignUpStudent!): String! # param new_stud
+    deleteStudentById(id:String!):String!
+}
+
+## Lets Create a Interface type
+interface IStudent{
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+    collegeId: String!
+}
+
+## Objects
+
+### Students
+type Student implements IStudent{
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+    collegeId: String!
+    college:College
+    fullName: String!
+}
+
+input SignUpStudent{
+    id: ID
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+    collegeId: String!
+}
+
+### The College Class
+type College{
+    id: ID!
+    name: String
+    location: String
+    rating: Float
+}
+
+

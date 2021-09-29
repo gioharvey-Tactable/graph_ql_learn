@@ -47,6 +47,23 @@ var Mutation = {
             lastName: args.lastName
         });
         return db_1["default"].students.get(id);
+    },
+    // The custom validator
+    signUp: function (root, args, context, info) {
+        var _a = args.input, email = _a.email, password = _a.password, firstName = _a.firstName;
+        // Regular expression
+        var emailExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var isValidEmail = emailExpression.test(String(email).toLowerCase());
+        if (!isValidEmail) {
+            throw new Error("Email not in proper format");
+        }
+        if (firstName.length > 15) {
+            throw new Error("firstName should be less than 15 characters");
+        }
+        if (password.length < 8) {
+            throw new Error("password should be minimum of 8 characters");
+        }
+        return "success";
     }
 };
 exports["default"] = { Query: Query, Student: exports.Student, Mutation: Mutation }; // We export the merged resolvers

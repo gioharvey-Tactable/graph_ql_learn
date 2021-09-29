@@ -1,0 +1,10 @@
+body, html {
+  padding:1%;
+}
+
+.cardContainer{
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  /* justify-content: center; Align items Center */
+}
