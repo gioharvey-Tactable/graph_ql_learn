@@ -8,3 +8,17 @@ body, html {
   overflow-x: auto;
   /* justify-content: center; Align items Center */
 }
+
+ul{
+  list-style: none;
+}
+
+ul li{
+  display: inline-block;
+  margin-right: 2%;
+}
+
+form input{
+  display: flex;
+  padding: 5px;;
+}

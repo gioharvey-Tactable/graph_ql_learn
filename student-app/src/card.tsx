@@ -1,11 +1,11 @@
-import React from "react"
+import React, {useState} from "react"
 import "./card.css"
 
 const imageStyle = {
     width:"100%",
 }
 
-const CardComponent = ({id, fullName, email, college}:any):JSX.Element => {
+const CardComponent = ({id, fullName, email, delete_stud, college}:any):JSX.Element => {
     return (
             <div className ="card">
                 <img src ="https://www.nicepng.com/png/detail/52-521023_download-free-icon-female-vectors-blank-facebook-profile.png" alt={id} style={imageStyle}/>
@@ -16,7 +16,7 @@ const CardComponent = ({id, fullName, email, college}:any):JSX.Element => {
                     <div className="center_elements">
                         <button>More Info</button>
                         <button>Edit</button>
-                        <button>Delete</button>
+                        <button onClick={()=> delete_stud(id)}>Delete</button>
                     </div>
                 </div>
             </div>
